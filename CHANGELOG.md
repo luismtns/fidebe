@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.4](https://github.com/luismtns/fidebe/compare/v0.4.3...v0.4.4) (2025-08-06)
+
+
+### Bug Fixes
+
+* reorder import statements in vite.config.mts for consistency ([fddf02a](https://github.com/luismtns/fidebe/commit/fddf02a32c41a01d9c09f92cda8b13e967c01df7))
+
 ## [0.4.3](https://github.com/luismtns/fidebe/compare/v0.4.2...v0.4.3) (2025-08-06)
 
 
