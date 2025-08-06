@@ -14,6 +14,10 @@
     "type": "git",
     "url": "https://github.com/luismtns/fidebe.git"
   },
+  "bugs": {
+    "url": "https://github.com/PlazaCC/fidebe/issues"
+  },
+  "homepage": "https://github.com/PlazaCC/fidebe#readme",
   "main": "./dist/fidebe-widget.umd.js",
   "module": "./dist/fidebe-widget.es.js",
   "types": "./dist/index.d.ts",
