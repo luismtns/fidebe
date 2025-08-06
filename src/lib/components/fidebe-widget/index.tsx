@@ -15,9 +15,12 @@ import React, { useState } from 'react'
  */
 export interface FidebeWidgetProps {
   endpoint: string
+  label?: string
+  className?: string
+  style?: React.CSSProperties
 }
 
-export function FidebeWidget({ endpoint }: FidebeWidgetProps) {
+export function FidebeWidget({ endpoint, label = 'Feedback', className, style }: FidebeWidgetProps) {
   const [open, setOpen] = useState(false)
   const [description, setDescription] = useState('')
   const [images, setImages] = useState<File[]>([])
@@ -60,8 +63,11 @@ export function FidebeWidget({ endpoint }: FidebeWidgetProps) {
       <button
         type='button'
         onClick={() => handleOpen()}
-        className='fixed bottom-4 right-4 rounded-full bg-blue-500 px-4 py-2 text-white shadow-lg'>
-        Feedback
+        className={['fixed bottom-4 right-4 rounded-full bg-blue-500 px-4 py-2 text-white shadow-lg', className].join(
+          ' '
+        )}
+        style={style}>
+        {label}
       </button>
     )
   }
