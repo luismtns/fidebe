@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/luismtns/fidebe/compare/v0.2.0...v0.3.0) (2025-08-06)
+
+
+### Features
+
+* add GitHub Actions workflow for version generation and update publish command options ([3a1de3d](https://github.com/luismtns/fidebe/commit/3a1de3dfb5cc752cc93c3b687dcaa74a4d98e377))
+* implement FidebeWidget component for feedback collection and update configuration paths ([4a4c0ab](https://github.com/luismtns/fidebe/commit/4a4c0abdf55fd9fcb2f49f15e9555f7a45b257bf))
+
+
+### Bug Fixes
+
+* update package name to include scope ([18291f7](https://github.com/luismtns/fidebe/commit/18291f7a0b8d997bc20dd195f3d152c272d40ec2))
+
 ## [0.2.0](https://github.com/luismtns/fidebe/compare/v0.1.3...v0.2.0) (2025-08-06)
 
 
