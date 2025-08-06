@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/luismtns/fidebe/compare/v0.4.1...v0.4.2) (2025-08-06)
+
+
+### Bug Fixes
+
+* trigger release ([591e994](https://github.com/luismtns/fidebe/commit/591e9949bb118da1a8e8df700ea3e136f3f5ac1e))
+
 ## [0.4.0](https://github.com/luismtns/fidebe/compare/v0.3.2...v0.4.0) (2025-08-06)
 
 
