@@ -28,14 +28,6 @@ export function FidebeWidget({ endpoint, label = 'Feedback', className, style }:
 
   async function handleOpen() {
     setOpen(true)
-    // const canvas = await html2canvas(document.body);
-    // const blob = await new Promise<Blob | null>((resolve) =>
-    //   canvas.toBlob(resolve),
-    // );
-    // if (blob) {
-    //   const file = new File([blob], 'screenshot.png', { type: 'image/png' });
-    //   setImages((prev) => [...prev, file]);
-    // }
   }
 
   function handleFiles(event: React.ChangeEvent<HTMLInputElement>) {
