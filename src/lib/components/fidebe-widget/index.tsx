@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import type React from 'react'
+import { useState } from 'react'
 
 /**
  * Projeto: Fidebe Widget
@@ -38,8 +39,8 @@ export function FidebeWidget({ endpoint, label = 'Feedback', className, style }:
   }
 
   function handleFiles(event: React.ChangeEvent<HTMLInputElement>) {
-    if (event.target.files) {
-      setImages((prev) => [...prev, ...Array.from(event.target.files!)])
+    if (event.target.files !== null) {
+      setImages((prev) => [...prev, ...Array.from(event.target.files as FileList)])
     }
   }
 
