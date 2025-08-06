@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/luismtns/fidebe/compare/v0.1.3...v0.2.0) (2025-08-06)
+
+
+### Features
+
+* add GitHub Actions workflow for version generation and update publish command options ([3a1de3d](https://github.com/luismtns/fidebe/commit/3a1de3dfb5cc752cc93c3b687dcaa74a4d98e377))
+
 ## [3.0.1](https://github.com/IgnacioNMiranda/vite-component-library-template/compare/v3.0.0...v3.0.1) (2025-06-22)
 
 
