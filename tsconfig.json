@@ -17,7 +17,7 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "fidebe-widget": ["./lib/FidebeWidget.tsx"]
+      "@luisbovo/fidebe-widget": ["./lib/FidebeWidget.tsx"]
     }
   },
   "include": ["./src", "./lib", "./types"],

@@ -1,12 +1,5 @@
 {
-  "extends": [
-    "react-app",
-    "vite",
-    "standard",
-    "standard-jsx",
-    "standard-react",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["react-app", "standard", "standard-jsx", "standard-react"],
   "plugins": ["jsx-a11y", "prettier"],
   "rules": {
     "comma-dangle": [

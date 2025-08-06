@@ -1772,6 +1772,44 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@luisbovo/fidebe-widget@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@luisbovo/fidebe-widget@workspace:."
+  dependencies:
+    "@types/node": "npm:17.0.21"
+    "@types/react": "npm:17.0.40"
+    "@types/react-dom": "npm:17.0.13"
+    "@vitejs/plugin-react": "npm:1.2.0"
+    autoprefixer: "npm:^10.4.14"
+    babel-eslint: "npm:10.1.0"
+    eslint: "npm:8.11.0"
+    eslint-config-prettier: "npm:^10.1.8"
+    eslint-config-react-app: "npm:7.0.0"
+    eslint-config-standard: "npm:16.0.3"
+    eslint-config-standard-jsx: "npm:10.0.0"
+    eslint-config-standard-react: "npm:11.0.1"
+    eslint-plugin-import: "npm:2.25.4"
+    eslint-plugin-node: "npm:11.1.0"
+    eslint-plugin-prettier: "npm:^5.5.3"
+    eslint-plugin-promise: "npm:6.0.0"
+    eslint-plugin-react: "npm:7.29.4"
+    husky: "npm:7.0.4"
+    postcss: "npm:^8.4.21"
+    prettier: "npm:^3.6.2"
+    react: "npm:17.0.2"
+    react-dom: "npm:17.0.2"
+    tailwindcss: "npm:^3.4.1"
+    typescript: "npm:4.6.2"
+    vite: "npm:2.9.17"
+    vite-plugin-dts: "npm:0.9.10"
+    vite-plugin-eslint: "npm:^1.8.1"
+    vite-plugin-linter: "npm:0.2.4"
+    vite-tsconfig-paths: "npm:3.4.1"
+  peerDependencies:
+    react: ">=17.x"
+  languageName: unknown
+  linkType: soft
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -1857,6 +1895,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/pluginutils@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "@rollup/pluginutils@npm:4.2.1"
+  dependencies:
+    estree-walker: "npm:^2.0.1"
+    picomatch: "npm:^2.2.2"
+  checksum: 10c0/3ee56b2c8f1ed8dfd0a92631da1af3a2dfdd0321948f089b3752b4de1b54dc5076701eadd0e5fc18bd191b77af594ac1db6279e83951238ba16bf8a414c64c48
+  languageName: node
+  linkType: hard
+
 "@rushstack/eslint-patch@npm:^1.1.0":
   version: 1.1.1
   resolution: "@rushstack/eslint-patch@npm:1.1.1"
@@ -1883,6 +1931,16 @@ __metadata:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
   checksum: 10c0/2b2a9ce2bec792c5a0aeddeebbfd17784675a9c63180e1d144f7699a468f0bda3730d80a2991027ec38c8d283f1fe9b99b11fe706a06d73dc12c3a2dadea7ad7
+  languageName: node
+  linkType: hard
+
+"@types/eslint@npm:^8.4.5":
+  version: 8.56.12
+  resolution: "@types/eslint@npm:8.56.12"
+  dependencies:
+    "@types/estree": "npm:*"
+    "@types/json-schema": "npm:*"
+  checksum: 10c0/e4ca426abe9d55f82b69a3250bec78b6d340ad1e567f91c97ecc59d3b2d6a1d8494955ac62ad0ea14b97519db580611c02be8277cbea370bdfb0f96aa2910504
   languageName: node
   linkType: hard
 
@@ -3824,43 +3882,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fidebe-widget@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "fidebe-widget@workspace:."
-  dependencies:
-    "@types/node": "npm:17.0.21"
-    "@types/react": "npm:17.0.40"
-    "@types/react-dom": "npm:17.0.13"
-    "@vitejs/plugin-react": "npm:1.2.0"
-    autoprefixer: "npm:^10.4.14"
-    babel-eslint: "npm:10.1.0"
-    eslint: "npm:8.11.0"
-    eslint-config-prettier: "npm:^10.1.8"
-    eslint-config-react-app: "npm:7.0.0"
-    eslint-config-standard: "npm:16.0.3"
-    eslint-config-standard-jsx: "npm:10.0.0"
-    eslint-config-standard-react: "npm:11.0.1"
-    eslint-plugin-import: "npm:2.25.4"
-    eslint-plugin-node: "npm:11.1.0"
-    eslint-plugin-prettier: "npm:^5.5.3"
-    eslint-plugin-promise: "npm:6.0.0"
-    eslint-plugin-react: "npm:7.29.4"
-    husky: "npm:7.0.4"
-    postcss: "npm:^8.4.21"
-    prettier: "npm:^3.6.2"
-    react: "npm:17.0.2"
-    react-dom: "npm:17.0.2"
-    tailwindcss: "npm:^3.4.1"
-    typescript: "npm:4.6.2"
-    vite: "npm:2.9.17"
-    vite-plugin-dts: "npm:0.9.10"
-    vite-plugin-linter: "npm:0.2.4"
-    vite-tsconfig-paths: "npm:3.4.1"
-  peerDependencies:
-    react: ">=17.x"
-  languageName: unknown
-  linkType: soft
-
 "file-entry-cache@npm:^6.0.1":
   version: 6.0.1
   resolution: "file-entry-cache@npm:6.0.1"
@@ -5716,6 +5737,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rollup@npm:^2.77.2":
+  version: 2.79.2
+  resolution: "rollup@npm:2.79.2"
+  dependencies:
+    fsevents: "npm:~2.3.2"
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 10c0/bc3746c988d903c2211266ddc539379d53d92689b9cc5c2b4e3ae161689de9af491957a567c629b6cc81f48d0928a7591fc4c383fba68a48d2966c9fb8a2bce9
+  languageName: node
+  linkType: hard
+
 "run-parallel@npm:^1.1.9":
   version: 1.2.0
   resolution: "run-parallel@npm:1.2.0"
@@ -6387,6 +6422,20 @@ __metadata:
   peerDependencies:
     vite: ">=2.4.4"
   checksum: 10c0/3fa990082c442c9b8299c3d4abc802691a28ce1b364fc482b072d54cf3de2f1c1b96af12c294f96ff844bfda6da75ea1bbf955de799e96b6eec990e5b5b76b2c
+  languageName: node
+  linkType: hard
+
+"vite-plugin-eslint@npm:^1.8.1":
+  version: 1.8.1
+  resolution: "vite-plugin-eslint@npm:1.8.1"
+  dependencies:
+    "@rollup/pluginutils": "npm:^4.2.1"
+    "@types/eslint": "npm:^8.4.5"
+    rollup: "npm:^2.77.2"
+  peerDependencies:
+    eslint: ">=7"
+    vite: ">=2"
+  checksum: 10c0/123c3dcf8229fe2104f139877e866c1a7fc21903dc09f80bebb319a29929667074b9db6d89b3c48eea4740567a07c875d13c4c863ccf7a30a6c9621c74a5c37a
   languageName: node
   linkType: hard
 

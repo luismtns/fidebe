@@ -4,10 +4,5 @@
     "module": "esnext",
     "moduleResolution": "node"
   },
-  "include": [
-    "vite.config.ts"
-  ]
-  "paths": {
-    "@luismtns/fidebe-widget": ["./lib"]
-  }
+  "include": ["vite.config.ts"]
 }
