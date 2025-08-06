@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/luismtns/fidebe/compare/v0.3.2...v0.4.0) (2025-08-06)
+
+
+### Features
+
+* enhance FidebeWidget to accept customizable label, className, and style props ([ed85cf7](https://github.com/luismtns/fidebe/commit/ed85cf78ba07d5318d82377bd129946bb5ca5fb8))
+
 ## [0.3.0](https://github.com/luismtns/fidebe/compare/v0.2.0...v0.3.0) (2025-08-06)
 
 
