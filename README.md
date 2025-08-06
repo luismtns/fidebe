@@ -1,45 +1,77 @@
-# ⚛️⚡ Vite + React + Typescript Component Library Template
+# 📝 Fidebe Widget
 
-## Features
+> React library for floating feedback collection with screenshot capture
 
-- ♥️ [Node 22](https://nodejs.org/en/download)
-- ⚛️ [React 19](https://reactjs.org/)
-- 📚 [Storybook 9](https://storybook.js.org/) - Components preview
-- 🖌️ [Tailwind CSS 4](https://tailwindcss.com/)
-- ⏩ [Vite](https://vitejs.dev/) - Run and build the project blazingly fast!
-- ⚡ [Vitest](https://vitest.dev/) - Components Unit Testing
-- 📐 [Biome](https://biomejs.dev/) - Formatting and Linting
-- 🌟 [Typescript](https://www.typescriptlang.org/)
-- 🐶 [Husky](https://typicode.github.io/husky) & [Lint Staged](https://www.npmjs.com/package/lint-staged) - Pre-commit Hooks
-- ⏰ [Release Please](https://github.com/googleapis/release-please) — Generate the changelog with the release-please workflow
-- 👷 [Github Actions](https://github.com/features/actions) — Releasing versions to NPM
-- Initial components setup using [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/)
+## About the Project
 
-## Getting Started
+**Fidebe Widget** is a reusable React component that provides a floating widget for user feedback collection, including automatic screenshot capture and image uploads. The goal is to offer a minimal, pluggable, and easy-to-embed experience for any web application.
 
-1. Create a new repository using this one as template
-2. Clone your repo
-3. Install dependencies with `pnpm i` (first run `corepack enable` to enable pnpm)
+### Key Features
+
+- Customizable floating button
+- Modal for feedback description
+- Multiple image uploads
+- Automatic screenshot capture (using html2canvas or native alternative)
+- Context information submission (route, browser, platform)
+- Styling with TailwindCSS + ShadCN UI
+- Easy integration via props (`endpoint`)
+
+## Installation
+
+```bash
+pnpm add @luisbovo/fidebe
+# or
+npm install @luisbovo/fidebe
+# or
+yarn add @luisbovo/fidebe
+```
+
+## Basic Usage
+
+```tsx
+import { FidebeWidget } from '@luisbovo/fidebe'
+;<FidebeWidget endpoint='https://your-backend.com/feedback' />
+```
+
+## Props
+
+| Prop      | Type   | Description                                                  |
+| --------- | ------ | ------------------------------------------------------------ |
+| endpoint  | string | URL where the feedback will be sent (required)               |
+| label     | string | Text for the floating button (optional, default: "Feedback") |
+| className | string | Extra CSS class for button customization (optional)          |
+| style     | object | Inline style for the button (optional)                       |
+
+## How it Works
+
+1. The user clicks the floating button.
+2. A modal opens to type feedback and attach images.
+3. The component automatically captures the screen (screenshot).
+4. Upon submission, the feedback, images, and context are sent to the provided endpoint.
 
 ## Main Scripts
 
-Always prepending pnpm:
+- `pnpm dev` — Storybook preview with Hot Reload
+- `pnpm build` — Build the Storybook
+- `pnpm build:lib` — Build the library for publishing
+- `pnpm lint` — Lint with Biome
+- `pnpm format` — Format with Biome
+- `pnpm test` — Unit tests with Vitest
 
-- `dev`: Bootstrap the Storybook preview with Hot Reload.
-- `build`: Builds the static storybook project.
-- `build:lib`: Builds the component library into the **dist** folder.
-- `lint`: Applies linting based on the rules defined in **biome.json**.
-- `format`: Formats files using the biome rules defined in **biome.json**.
-- `test`: Runs testing using watch mode.
-- `test:cov`: Runs testing displaying a coverage report.
+## Development
 
-## Blog Post
+The project uses:
 
-I created a post explaning how to set up this library and publish it to a package registry! You can read it [here](https://igna.hashnode.dev/vite-react-typescript-component-library-template-setup-explanation).
+- [React 19](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [Storybook 9](https://storybook.js.org/)
+- [Vitest](https://vitest.dev/)
+- [Biome](https://biomejs.dev/)
 
-## Author
+## Contribution
 
-[Ignacio Miranda Figueroa](https://www.linkedin.com/in/ignacio-miranda-figueroa/)
+Contributions are welcome! Feel free to open issues or pull requests.
 
 ## License
 
