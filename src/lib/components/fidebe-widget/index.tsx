@@ -60,7 +60,7 @@ export function FidebeWidget({ endpoint }: FidebeWidgetProps) {
       <button
         type='button'
         onClick={() => handleOpen()}
-        className='fixed bottom-4 right-4 rounded-full bg-blue-600 px-4 py-2 text-white shadow-lg'>
+        className='fixed bottom-4 right-4 rounded-full bg-blue-500 px-4 py-2 text-white shadow-lg'>
         Feedback
       </button>
     )
