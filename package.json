@@ -45,10 +45,6 @@
     "test:cov": "vitest run --coverage",
     "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
   },
-  "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
-  },
   "devDependencies": {
     "@babel/core": "7.27.4",
     "@biomejs/biome": "2.0.4",
