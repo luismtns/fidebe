@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/luismtns/fidebe/compare/v0.4.4...v0.5.0) (2025-08-06)
+
+
+### Features
+
+* inject styles into component build ([d18aec9](https://github.com/luismtns/fidebe/commit/d18aec985ed9bbc8f8a6039f7a1f908c19f80834))
+
 ## [0.4.4](https://github.com/luismtns/fidebe/compare/v0.4.3...v0.4.4) (2025-08-06)
 
 
