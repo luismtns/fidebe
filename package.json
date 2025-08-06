@@ -1,5 +1,5 @@
 {
-  "name": "@luisbovo/fidebe-widget",
+  "name": "@luisbovo/fidebe",
   "version": "0.3.2",
   "description": "Floating feedback widget for React applications with screenshot capture.",
   "keywords": [
@@ -18,8 +18,8 @@
     "url": "https://github.com/PlazaCC/fidebe/issues"
   },
   "homepage": "https://github.com/PlazaCC/fidebe#readme",
-  "main": "./dist/fidebe-widget.umd.js",
-  "module": "./dist/fidebe-widget.es.js",
+  "main": "./dist/fidebe.umd.js",
+  "module": "./dist/fidebe.es.js",
   "types": "./dist/index.d.ts",
   "publishConfig": {
     "provenance": true
@@ -27,10 +27,10 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/fidebe-widget.es.js",
-      "require": "./dist/fidebe-widget.umd.js"
+      "import": "./dist/fidebe.es.js",
+      "require": "./dist/fidebe.umd.js"
     },
-    "./styles.css": "./dist/fidebe-widget.css"
+    "./styles.css": "./dist/fidebe.css"
   },
   "engines": {
     "node": ">=22"
