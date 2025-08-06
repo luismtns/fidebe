@@ -1,6 +1,6 @@
 {
   "name": "@luisbovo/fidebe-widget",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Floating feedback widget for React applications with screenshot capture.",
   "keywords": [
     "feedback",
