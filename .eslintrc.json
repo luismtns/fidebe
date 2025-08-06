@@ -1,0 +1,33 @@
+{
+  "extends": [
+    "react-app",
+    "vite",
+    "standard",
+    "standard-jsx",
+    "standard-react",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["jsx-a11y", "prettier"],
+  "rules": {
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "always-multiline"
+      }
+    ],
+    "quotes": ["error", "single"],
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-pascal-case": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "off",
+      {
+        "ignoreRestSiblings": true
+      }
+    ]
+  }
+}
