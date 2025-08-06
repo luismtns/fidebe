@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.3](https://github.com/luismtns/fidebe/compare/v0.4.2...v0.4.3) (2025-08-06)
+
+
+### Bug Fixes
+
+* update package.json ([8acfa74](https://github.com/luismtns/fidebe/commit/8acfa748a0c20263ebc68b5503fb02b2f4a08fcb))
+
 ## [0.4.2](https://github.com/luismtns/fidebe/compare/v0.4.1...v0.4.2) (2025-08-06)
 
 
