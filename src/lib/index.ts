@@ -1,4 +1,4 @@
-import './tailwind/theme.css'
+import './tailwind/theme.css?inline'
 import styles from './tailwind/theme.css?inline'
 export * from './components'
 

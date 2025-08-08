@@ -1,5 +1,16 @@
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
+import useScreenshotBehindModal from '@/hooks/useScreenshotBehindModal'
+import { MessageCircleIcon } from 'lucide-react'
 import type React from 'react'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { Button } from '../ui/button'
 
 /**
  * Projeto: Fidebe Widget
@@ -16,15 +27,28 @@ import { useState } from 'react'
  */
 export interface FidebeWidgetProps {
   endpoint: string
-  label?: string
+  label?: string | React.ReactNode
   className?: string
   style?: React.CSSProperties
 }
 
-export function FidebeWidget({ endpoint, label = 'Feedback', className, style }: FidebeWidgetProps) {
+export function FidebeWidget({
+  endpoint,
+  label = (
+    <>
+      <MessageCircleIcon />
+      <span>Feedback</span>
+    </>
+  ),
+  className,
+  style,
+}: FidebeWidgetProps) {
   const [open, setOpen] = useState(false)
   const [description, setDescription] = useState('')
   const [images, setImages] = useState<File[]>([])
+
+  const modalRef = useRef<HTMLDivElement>(null)
+  const captureScreenshot = useScreenshotBehindModal(modalRef)
 
   async function handleOpen() {
     setOpen(true)
@@ -51,39 +75,51 @@ export function FidebeWidget({ endpoint, label = 'Feedback', className, style }:
     setImages([])
   }
 
-  if (!open) {
-    return (
-      <button
-        type='button'
-        onClick={() => handleOpen()}
-        className={['fixed bottom-4 right-4 rounded-full bg-blue-500 px-4 py-2 text-white shadow-lg', className].join(
-          ' '
-        )}
-        style={style}>
-        {label}
-      </button>
-    )
-  }
+  // if (!open) {
+  //   return (
+  //     <Button
+  //       type='button'
+  //       onClick={() => handleOpen()}
+  //       className={['fixed bottom-4 right-4 rounded-full shadow-lg', className].join(' ')}
+  //       style={style}>
+  //       {label}
+  //     </Button>
+  //   )
+  // }
 
   return (
-    <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/50'>
-      <div className='w-96 rounded-md bg-white p-4 shadow-md space-y-2'>
-        <textarea
-          className='h-24 w-full resize-none rounded border p-2'
-          placeholder='Describe your feedback...'
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <input type='file' multiple onChange={(e) => handleFiles(e)} />
-        <div className='flex justify-end gap-2'>
-          <button type='button' className='rounded border px-3 py-1' onClick={() => setOpen(false)}>
-            Cancel
-          </button>
-          <button type='button' className='rounded bg-blue-600 px-3 py-1 text-white' onClick={() => handleSubmit()}>
-            Send
-          </button>
-        </div>
-      </div>
-    </div>
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger>
+        <Button
+          type='button'
+          onClick={() => handleOpen()}
+          className={['fixed bottom-4 right-4 rounded-full shadow-lg', className].join(' ')}
+          style={style}>
+          {label}
+        </Button>
+      </DialogTrigger>
+      <DialogContent ref={modalRef}>
+        <DialogHeader>
+          <DialogTitle>Are you absolutely sure?</DialogTitle>
+          <DialogDescription>
+            <div className='w-96 rounded-md bg-white p-4 shadow-md space-y-2'>
+              <textarea
+                className='h-24 w-full resize-none rounded border p-2'
+                placeholder='Describe your feedback...'
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+              <input type='file' multiple onChange={(e) => handleFiles(e)} />
+              <div className='flex justify-end gap-2'>
+                <Button onClick={() => setOpen(false)}>Cancel</Button>
+                <Button type='button' onClick={() => handleSubmit()}>
+                  Send
+                </Button>
+              </div>
+            </div>
+          </DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
   )
 }
