@@ -28,9 +28,9 @@
     "url": "https://github.com/luismtns/fidebe.git"
   },
   "bugs": {
-    "url": "https://github.com/PlazaCC/fidebe/issues"
+    "url": "https://github.com/luismtns/fidebe/issues"
   },
-  "homepage": "https://github.com/PlazaCC/fidebe#readme",
+  "homepage": "https://github.com/luismtns/fidebe#readme",
   "main": "./dist/fidebe.umd.js",
   "module": "./dist/fidebe.es.js",
   "types": "./dist/index.d.ts",
