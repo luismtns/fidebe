@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/luismtns/fidebe/compare/v0.6.0...v0.7.0) (2025-08-11)
+
+
+### Features
+
+* enhance README and component documentation, update package description and keywords ([c9c7189](https://github.com/luismtns/fidebe/commit/c9c7189cd53967b09f58bcbb733ecab9b504359e))
+
 ## [0.6.0](https://github.com/luismtns/fidebe/compare/v0.5.0...v0.6.0) (2025-08-11)
 
 
