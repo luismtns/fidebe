@@ -1,12 +1,11 @@
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import path from "path"
-import type { UserConfigExport } from 'vite'
 import dts from 'vite-plugin-dts'
 import { configDefaults, defineConfig } from 'vitest/config'
 import { name } from './package.json'
 
-const app = async (): Promise<UserConfigExport> => {
+const app = async () => {
   /**
    * Removes everything before the last
    * @octocat/library-repo -> library-repo
