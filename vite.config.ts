@@ -1,6 +1,6 @@
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
-import path from 'node:path'
+import path from "path"
 import type { UserConfigExport } from 'vite'
 import dts from 'vite-plugin-dts'
 import { configDefaults, defineConfig } from 'vitest/config'
@@ -22,6 +22,11 @@ const app = async (): Promise<UserConfigExport> => {
       }),
       tailwindcss(),
     ],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "src/lib"),
+      },
+    },
     build: {
       lib: {
         entry: path.resolve(__dirname, 'src/lib/index.ts'),
