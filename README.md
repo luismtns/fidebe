@@ -11,7 +11,6 @@
 - Customizable floating button
 - Modal for feedback description
 - Multiple image uploads
-- Automatic screenshot capture (using html2canvas)
 - Context information submission (browser, platform, route, console logs)
 - Styling with TailwindCSS + ShadCN UI
 - Easy integration via props and callbacks
@@ -31,7 +30,7 @@ yarn add @luisbovo/fidebe
 ```tsx
 import { FidebeWidget } from '@luisbovo/fidebe'
 
-<FidebeWidget onSubmit={handleFeedback} onImageUpload={handleImageUpload} extraContext={{ route: '/home' }} />
+;<FidebeWidget onSubmit={handleFeedback} onImageUpload={handleImageUpload} extraContext={{ route: '/home' }} />
 
 // Example handlers:
 function handleFeedback(data) {
