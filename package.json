@@ -1,11 +1,24 @@
 {
   "name": "@luisbovo/fidebe",
   "version": "0.6.0",
-  "description": "Floating feedback widget for React applications with screenshot capture.",
+  "description": "Modern floating feedback widget for React apps. Collect user feedback, screenshots, images, and context with a customizable modal.",
   "keywords": [
+    "react",
     "feedback",
     "widget",
-    "screenshot"
+    "floating button",
+    "modal",
+    "screenshot",
+    "image upload",
+    "user feedback",
+    "context",
+    "tailwindcss",
+    "shadcn",
+    "customizable",
+    "form",
+    "console logs",
+    "browser info",
+    "platform info"
   ],
   "author": "Luis Bovo <contato@luisbovo.com.br>",
   "private": false,

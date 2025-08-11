@@ -19,20 +19,6 @@ import { Button } from '../ui/button'
 
 const recorder = createConsoleRecorder(400)
 
-/**
- * Projeto: Fidebe Widget
- *
- * Biblioteca de componente React reutilizável que oferece um widget flutuante
- * para coleta de feedback com captura de tela. O objetivo é fornecer uma
- * experiência mínima e plugável para embutir em qualquer aplicação web.
- *
- * - Estilização com TailwindCSS + ShadCN UI.
- * - Captura de tela utilizando html2canvas.
- * - Modal com campo de descrição e upload de múltiplas imagens.
- * - Envio contendo texto, screenshots e informações de contexto para o endpoint
- *   informado via props.
- */
-
 type FidebeFormData = {
   feedback: {
     description: string
@@ -89,6 +75,18 @@ export interface FidebeWidgetProps {
   extraContext?: Record<string, any>
 }
 
+/**
+ * Floating feedback widget for React applications.
+ *
+ * Provides a customizable button and modal for collecting user feedback, screenshots, images, and context data.
+ *
+ * Main props:
+ * - onSubmit: Callback for feedback submission
+ * - onImageUpload: Callback for image uploads
+ * - extraContext: Additional context to include
+ *
+ * Styled with TailwindCSS and ShadCN UI.
+ */
 export function FidebeWidget({
   label = (
     <>

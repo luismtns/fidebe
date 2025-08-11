@@ -1,4 +1,3 @@
-// env.ts
 export type CollectEnvResult = {
   timestamp: string
   timezone: string
