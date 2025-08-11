@@ -1,6 +1,6 @@
 {
   "name": "@luisbovo/fidebe",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Modern floating feedback widget for React apps. Collect user feedback, screenshots, images, and context with a customizable modal.",
   "keywords": [
     "react",

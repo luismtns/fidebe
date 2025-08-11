@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/luismtns/fidebe/compare/v0.7.0...v0.7.1) (2025-08-11)
+
+
+### Bug Fixes
+
+* update repository URLs in package.json to reflect correct GitHub account ([e2eda6f](https://github.com/luismtns/fidebe/commit/e2eda6f3b6c11a089a0a430380f1355b5952bb70))
+
 ## [0.7.0](https://github.com/luismtns/fidebe/compare/v0.6.0...v0.7.0) (2025-08-11)
 
 
