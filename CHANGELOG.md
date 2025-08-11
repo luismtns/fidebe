@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0](https://github.com/luismtns/fidebe/compare/v0.5.0...v0.6.0) (2025-08-11)
+
+
+### Features
+
+* add dialog component and integrate with Fidebe widget ([2f907fc](https://github.com/luismtns/fidebe/commit/2f907fce9e38431e21e475c749a2e2579bdd05c5))
+* update `FidebeWidget` with form handling and environment logging; refactor input component and remove unused hook ([ce8130d](https://github.com/luismtns/fidebe/commit/ce8130db7828af0be72e109d40feecadfd4d2661))
+
 ## [0.5.0](https://github.com/luismtns/fidebe/compare/v0.4.4...v0.5.0) (2025-08-06)
 
 
