@@ -6,11 +6,18 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import useScreenshotBehindModal from '@/hooks/useScreenshotBehindModal'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { cn } from '@/utils'
+import { createConsoleRecorder, LogEntry } from '@/utils/console-recorder'
+import { collectEnv, CollectEnvResult } from '@/utils/env'
 import { MessageCircleIcon } from 'lucide-react'
-import type React from 'react'
-import { useRef, useState } from 'react'
+import React, { useRef } from 'react'
+import { useForm } from 'react-hook-form'
 import { Button } from '../ui/button'
+
+const recorder = createConsoleRecorder(400)
 
 /**
  * Projeto: Fidebe Widget
@@ -25,15 +32,64 @@ import { Button } from '../ui/button'
  * - Envio contendo texto, screenshots e informações de contexto para o endpoint
  *   informado via props.
  */
+
+type FidebeFormData = {
+  feedback: {
+    description: string
+    images: FileList | undefined
+  }
+  environment: CollectEnvResult
+  logs: {
+    count: number
+    entries: LogEntry[]
+  }
+  context?: Record<string, any>
+}
 export interface FidebeWidgetProps {
-  endpoint: string
   label?: string | React.ReactNode
   className?: string
   style?: React.CSSProperties
+
+  dialogClassName?: string
+  dialogStyle?: React.CSSProperties
+
+  dialogTitle?: string | React.ReactNode
+  dialogTitleClassName?: string
+  dialogTitleStyle?: React.CSSProperties
+
+  dialogDescription?: string | React.ReactNode
+  dialogDescriptionClassName?: string
+  dialogDescriptionStyle?: React.CSSProperties
+
+  dialogDescriptionFieldLabel?: string | React.ReactNode
+  dialogDescriptionFieldLabelClassName?: string
+  dialogDescriptionFieldLabelStyle?: React.CSSProperties
+  dialogDescriptionFieldPlaceholder?: string
+  dialogDescriptionFieldError?: string
+  dialogDescriptionFieldClassName?: string
+  dialogDescriptionFieldStyle?: React.CSSProperties
+
+  dialogImageFieldLabel?: string | React.ReactNode
+  dialogImageFieldLabelClassName?: string
+  dialogImageFieldLabelStyle?: React.CSSProperties
+  dialogImageFieldPlaceholder?: string
+  dialogImageFieldClassName?: string
+  dialogImageFieldStyle?: React.CSSProperties
+
+  dialogSend?: string | React.ReactNode
+  dialogSendClassName?: string
+  dialogSendStyle?: React.CSSProperties
+
+  dialogCancel?: string | React.ReactNode
+  dialogCancelClassName?: string
+  dialogCancelStyle?: React.CSSProperties
+
+  onSubmit?: (data: FidebeFormData) => void
+  onImageUpload?: (formData: FormData) => void
+  extraContext?: Record<string, any>
 }
 
 export function FidebeWidget({
-  endpoint,
   label = (
     <>
       <MessageCircleIcon />
@@ -42,83 +98,155 @@ export function FidebeWidget({
   ),
   className,
   style,
+  dialogTitle = 'Tell us whats is happening',
+  dialogTitleClassName,
+  dialogTitleStyle,
+  dialogDescription = 'Please describe your feedback and attach any relevant screenshots.',
+  dialogDescriptionClassName,
+  dialogDescriptionStyle,
+  dialogDescriptionFieldLabel = 'Description',
+  dialogDescriptionFieldLabelClassName,
+  dialogDescriptionFieldLabelStyle,
+  dialogDescriptionFieldPlaceholder = 'Describe your feedback',
+  dialogDescriptionFieldError = 'Description is required',
+  dialogDescriptionFieldClassName,
+  dialogDescriptionFieldStyle,
+  dialogImageFieldLabel = 'Screenshot',
+  dialogImageFieldLabelClassName,
+  dialogImageFieldLabelStyle,
+  dialogImageFieldPlaceholder = 'Upload your screenshot',
+  dialogImageFieldClassName,
+  dialogImageFieldStyle,
+  dialogSend = 'Send Feedback',
+  dialogSendClassName,
+  dialogSendStyle,
+  dialogCancel = 'Cancel',
+  dialogCancelClassName,
+  dialogCancelStyle,
+  onSubmit,
+  onImageUpload,
+  extraContext,
 }: FidebeWidgetProps) {
-  const [open, setOpen] = useState(false)
-  const [description, setDescription] = useState('')
-  const [images, setImages] = useState<File[]>([])
-
+  const [open, setOpen] = React.useState(false)
   const modalRef = useRef<HTMLDivElement>(null)
-  const captureScreenshot = useScreenshotBehindModal(modalRef)
+
+  const form = useForm({
+    defaultValues: {
+      description: '',
+      images: undefined,
+    },
+    mode: 'onSubmit',
+  })
 
   async function handleOpen() {
     setOpen(true)
   }
 
-  function handleFiles(event: React.ChangeEvent<HTMLInputElement>) {
-    if (event.target.files !== null) {
-      setImages((prev) => [...prev, ...Array.from(event.target.files as FileList)])
+  async function onFormSubmit(values: { description: string; images?: FileList }) {
+    const envInfo = await collectEnv()
+    const { logs } = recorder.getSnapshot()
+    const feedback = { description: values.description, images: values.images }
+    // Envia apenas os dados principais
+    if (typeof onSubmit === 'function') {
+      onSubmit({
+        feedback,
+        environment: envInfo,
+        logs: { count: logs.length, entries: logs },
+        context: extraContext,
+      })
     }
-  }
-
-  async function handleSubmit() {
-    const data = new FormData()
-    data.append('text', description)
-    images.forEach((file) => data.append('images', file))
-    data.append('url', window.location.href)
-    data.append('userAgent', navigator.userAgent)
-    data.append('platform', navigator.platform)
-
-    await fetch(endpoint, { method: 'POST', body: data })
-
+    // Se houver imagens, dispara callback separado
+    if (values.images && values.images.length > 0 && typeof onImageUpload === 'function') {
+      const imageData = new FormData()
+      Array.from(values.images).forEach((file) => imageData.append('images', file))
+      onImageUpload(imageData)
+    }
     setOpen(false)
-    setDescription('')
-    setImages([])
+    form.reset()
   }
-
-  // if (!open) {
-  //   return (
-  //     <Button
-  //       type='button'
-  //       onClick={() => handleOpen()}
-  //       className={['fixed bottom-4 right-4 rounded-full shadow-lg', className].join(' ')}
-  //       style={style}>
-  //       {label}
-  //     </Button>
-  //   )
-  // }
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger>
+      <DialogTrigger asChild>
         <Button
           type='button'
-          onClick={() => handleOpen()}
-          className={['fixed bottom-4 right-4 rounded-full shadow-lg', className].join(' ')}
+          onClick={handleOpen}
+          className={cn('fixed bottom-4 right-4 rounded-full shadow-lg', className)}
           style={style}>
           {label}
         </Button>
       </DialogTrigger>
       <DialogContent ref={modalRef}>
         <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
-          <DialogDescription>
-            <div className='w-96 rounded-md bg-white p-4 shadow-md space-y-2'>
-              <textarea
-                className='h-24 w-full resize-none rounded border p-2'
-                placeholder='Describe your feedback...'
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-              <input type='file' multiple onChange={(e) => handleFiles(e)} />
-              <div className='flex justify-end gap-2'>
-                <Button onClick={() => setOpen(false)}>Cancel</Button>
-                <Button type='button' onClick={() => handleSubmit()}>
-                  Send
-                </Button>
-              </div>
-            </div>
+          <DialogTitle className={dialogTitleClassName} style={dialogTitleStyle}>
+            {dialogTitle}
+          </DialogTitle>
+          <DialogDescription className={dialogDescriptionClassName} style={dialogDescriptionStyle}>
+            {dialogDescription}
           </DialogDescription>
         </DialogHeader>
+
+        <Form {...form}>
+          <form className='flex flex-col gap-4' onSubmit={form.handleSubmit(onFormSubmit)}>
+            <FormField
+              control={form.control}
+              name='description'
+              rules={{ required: dialogDescriptionFieldError }}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className={dialogDescriptionFieldLabelClassName} style={dialogDescriptionFieldLabelStyle}>
+                    {dialogDescriptionFieldLabel}
+                  </FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder={dialogDescriptionFieldPlaceholder}
+                      className={dialogDescriptionFieldClassName}
+                      style={dialogDescriptionFieldStyle}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='images'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className={dialogImageFieldLabelClassName} style={dialogImageFieldLabelStyle}>
+                    {dialogImageFieldLabel}
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      className={dialogImageFieldClassName}
+                      style={dialogImageFieldStyle}
+                      placeholder={dialogImageFieldPlaceholder}
+                      type='file'
+                      accept='image/*'
+                      multiple
+                      onChange={(e) => field.onChange(e.target.files)}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <div className='flex justify-end gap-2'>
+              <Button
+                variant={'ghost'}
+                type='button'
+                onClick={() => setOpen(false)}
+                className={dialogCancelClassName}
+                style={dialogCancelStyle}>
+                {dialogCancel}
+              </Button>
+              <Button type='submit' className={dialogSendClassName} style={dialogSendStyle}>
+                {dialogSend}
+              </Button>
+            </div>
+          </form>
+        </Form>
       </DialogContent>
     </Dialog>
   )
